@@ -25,6 +25,7 @@ CREATE TABLE posts
 CREATE TABLE debates
 (
     id INT NOT NULL AUTO_INCREMENT,
+    post_id INT NOT NULL,
     user1_id INT NOT NULL,
     user2_id INT NOT NULL,
     topic varchar(100) NOT NULL,
