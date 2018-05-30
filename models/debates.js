@@ -19,7 +19,7 @@ module.exports = function (sequelize, DataTypes) {
     });
 
     Debate.associate = function (models) {
-        Debate.hasMany(models.Post, 
+        Debate.hasMany(models.Message, 
             {foreignKey:'debate_id', sourceKey:'id'}
         );
         Debate.belongsToMany(models.User,

@@ -1,7 +1,7 @@
 
 module.exports = function (sequelize, DataTypes) {
 
-    var Post = sequelize.define("Post", {
+    var Message = sequelize.define("Message", {
         content: {
             type: DataTypes.STRING,
             allowNull: false,
@@ -11,15 +11,15 @@ module.exports = function (sequelize, DataTypes) {
         },
     });
 
-    Post.associate = function (models) {
-        Post.belongsTo(models.User, 
+    Message.associate = function (models) {
+        Message.belongsTo(models.User, 
             { foreignKey: 'user_id', targetKey: 'id' }
         );
-        Post.belongsTo(models.Debate,
+        Message.belongsTo(models.Debate,
             { foreignKey: 'debate_id', targetKey: 'id' }
         );
     };
 
-    return Post;
+    return Message;
 
 };
