@@ -9,11 +9,11 @@ module.exports = function (sequelize, DataTypes) {
             }
         },
         user1_votes: {
-            type: DataTypes.INT,
+            type: DataTypes.INTEGER,
             allowNull: false
         },
-                user1_votes: {
-            type: DataTypes.INT,
+        user2_votes: {
+            type: DataTypes.INTEGER,
             allowNull: false
         }
     });
@@ -27,5 +27,5 @@ module.exports = function (sequelize, DataTypes) {
         );
     };
 
-    return Post;
+    return Debate;
 };

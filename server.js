@@ -2,7 +2,7 @@
 // DEPENDENCIES
 // ============================================================================================
 var express = require("express");
-var bodyParser = require("body");
+var bodyParser = require("body-parser");
 
 // Require our models
 var db = require("./models");
@@ -26,7 +26,7 @@ app.use(bodyParser.json());
 // ============================================================================================
 // ROUTES
 // ============================================================================================
-require("./routes/html-routes.js")(app);
+require("./routes/html-routes")(app);
 
 // ============================================================================================
 // SYNC SEQUELIZE MODELS AND START EXPRESS APP

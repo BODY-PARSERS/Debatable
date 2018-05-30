@@ -11,12 +11,12 @@ module.exports = function(sequelize, DataTypes){
             allowNull: false
         },
         wins:{
-            type: DataTypes.INT,
+            type: DataTypes.INTEGER,
             allowNull: false,
             defaultValue: 0
         },
         losses: {
-            type: DataTypes.INT,
+            type: DataTypes.INTEGER,
             allowNull: false,
             defaultValue: 0
         }
