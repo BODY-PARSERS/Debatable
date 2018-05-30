@@ -1,0 +1,40 @@
+
+
+1. As a user I can login using my username and password.
+
+Acceptance Criteria: 
+    -Have a login box with form user input and a send button. 
+    -Create a database to hold username and password. 
+    -Database Table must have a unique ID for each user. 
+
+---------------------------------------------------------------------------
+2. As a user I can start a new debate using the given topics.
+
+Acceptance Criteria: 
+    -Have a start up CREATE div with button that has a dropdown with 5 predetermined topics.
+    -Have a sumbit button which takes you to debate page. 
+    -Must have database to hold information for each new debate.
+
+--------------------------------------------------------------------------
+3. As a user I can see when a debate has started and begin my debate until either 5 arguments 
+have been made or time limit of 15 minutes has passed. 
+
+Acceptance Criteria:
+    -The debate page must allow only one user to type their arugment and must have a send button.
+    -After the send button is pressed, argument will update upon the DEBATE screen. 
+
+--------------------------------------------------------------------------
+4. As a user I can vote upon a finished debate to determine who wins. 
+
+Acceptance Criteria:
+    -A user can only vote one time per closed debate. 
+    -An active tally of votes for each user must be displayed at all times and updated immediately.
+    -There must be a VOTE link on the home screen for users to vote
+
+--------------------------------------------------------------------------
+5. As a user I can join a debate that has been opened. 
+
+Acceptance Criteria:
+    - There must be a box on the home screen with a link to the join debate page. 
+    - A button that allows only one person to join debate with warning that if they leave before the 
+    debate is over will count as a loss. 
