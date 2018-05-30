@@ -10,17 +10,19 @@ module.exports = function (sequelize, DataTypes) {
         },
         user1_votes: {
             type: DataTypes.INTEGER,
-            allowNull: false
+            allowNull: false,
+            defaultValue: 0
         },
         user2_votes: {
             type: DataTypes.INTEGER,
-            allowNull: false
+            allowNull: false,
+            defaultValue: 0
         }
     });
 
     Debate.associate = function (models) {
         Debate.hasMany(models.Message, 
-            {foreignKey:'debate_id', sourceKey:'id'}
+            {foreignKey:{name:'debate_id', allowNull:true}, sourceKey:'id'}
         );
         Debate.belongsToMany(models.User,
         {through: 'UserDebate'}

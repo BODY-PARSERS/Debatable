@@ -27,11 +27,14 @@ app.use(bodyParser.json());
 // ROUTES
 // ============================================================================================
 require("./routes/html-routes")(app);
+require("./routes/user-api-routes")(app);
+require("./routes/message-api-routes")(app);
+require("./routes/debate-api-routes")(app);
 
 // ============================================================================================
 // SYNC SEQUELIZE MODELS AND START EXPRESS APP
 // ============================================================================================
-db.sequelize.sync({ force: true }).then(function() {
+db.sequelize.sync().then(function() {
     app.listen(PORT, function() {
       console.log("App listening on PORT " + PORT);
     });

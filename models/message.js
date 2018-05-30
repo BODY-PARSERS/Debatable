@@ -16,7 +16,7 @@ module.exports = function (sequelize, DataTypes) {
             { foreignKey: 'user_id', targetKey: 'id' }
         );
         Message.belongsTo(models.Debate,
-            { foreignKey: 'debate_id', targetKey: 'id' }
+            { foreignKey: {name:'debate_id', allowNull:true}, targetKey: 'id' }
         );
     };
 
