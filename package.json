@@ -1,0 +1,32 @@
+{
+  "name": "fight-me",
+  "version": "1.0.0",
+  "description": "an app for letting people have civil arguments about meaningful topics without the vitriol that is all too common on  social media these days",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/BODY-PARSERS/FightMe.git"
+  },
+  "keywords": [
+    "discussion",
+    "debate",
+    "conversation"
+  ],
+  "author": "The Body Parsers",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/BODY-PARSERS/FightMe/issues"
+  },
+  "homepage": "https://github.com/BODY-PARSERS/FightMe#readme",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "express": "^4.16.3",
+    "express-handlebars": "^3.0.0",
+    "mysql2": "^1.5.3",
+    "sequelize": "^4.37.10"
+  }
+}
