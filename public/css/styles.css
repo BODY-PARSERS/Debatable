@@ -1,7 +1,16 @@
-#container {
-    width:600px;
+.form-group{
+    width:300px;
 }
 
-h1{
+hr{
+    width:300px;
+    text-align: left;
+}
 
+.container{
+    width:350px;
+    border:2px ridge rgba(128, 128, 128, 0.377);
+    padding: 20px;
+    position: absolute;
+    left: 130px;
 }
