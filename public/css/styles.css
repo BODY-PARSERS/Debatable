@@ -2,10 +2,6 @@
     width:300px;
 }
 
-hr{
-    width:300px;
-    text-align: left;
-}
 
 .login-box{
     width:350px;
@@ -13,4 +9,28 @@ hr{
     padding: 20px;
     /* position: relative; */
     left: 130px;
+    background-color: aliceblue;
+}
+
+.deb-pic {
+    border-radius: 50%;
+    position: absolute;
+    right: 140px;
+    top:80px;
+}
+
+.button {
+    align-content: center;
+}
+
+body{
+    background-image: url("./../images/bg1.jpg");
+    background-repeat: no-repeat;
+    background-size: 1500px;
+}
+
+.logo{
+    width:65%;
+    height:65%;
+    float:right;
 }
