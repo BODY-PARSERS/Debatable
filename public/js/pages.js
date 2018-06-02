@@ -5,7 +5,16 @@ $(document).ready(function(){
         event.preventDefault();
         console.log("you clicked sign-up");
         $(".landing-page").hide();
+        $(".user-home-page").hide();
         $(".sign-up-box").show();
+    })
+
+    $(document).on("click", "#user-home-page-dropdown", function (event) {
+        event.preventDefault();
+        console.log("you clicked go to home page");
+        $(".landing-page").hide();
+        $(".sign-up-box").hide();
+        $(".user-home-page").show();
     })
 
     // On-click event of the home button
@@ -13,6 +22,7 @@ $(document).ready(function(){
         event.preventDefault();
         console.log("you clicked home");
         $(".sign-up-box").hide();
+        $(".user-home-page").hide();
         $(".landing-page").show();
     })
 

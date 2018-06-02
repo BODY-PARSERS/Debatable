@@ -18,6 +18,10 @@
     display: none;
 }
 
+.user-home-page{
+    display: none;
+}
+
 .deb-pic {
     border-radius: 50%;
     position: absolute;
