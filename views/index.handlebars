@@ -1,0 +1,122 @@
+
+<div class="container">
+
+    {{!-- Nav Bar Section --}}
+    <nav class="navbar navbar-expand-lg navbar-light bg-light poppins">
+
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown"
+            aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarNavDropdown">
+            <ul class="navbar-nav">
+                <li class="nav-item active">
+                    <a class="nav-link" href="#" id="home-button">Home
+                        <span class="sr-only">(current)</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Create Debate</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Join Debate</a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Account
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                        <a class="dropdown-item" href="#" id="sign-up-dropdown">Sign Up</a>
+                        <a class="dropdown-item" href="#" id="log-in-dropdown">Log In</a>
+                    </div>
+                </li>
+                <li>
+                    <form class="form-inline">
+                        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search Topics</button>
+                    </form>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    {{!-- Above is the Nav Bar Section! --}}
+
+
+    <br>
+
+
+    {{!-- This is our landing page! --}}
+    <div class="landing-page">
+        {{!-- header --}}
+        <div class="jumbotron">
+            <h1 class="display-4 rock-salt">Debatable</h1>
+            <hr class="my-4">
+            <p class="lead poppins">The ultimate app to share perspectives!</p>
+            <a class="btn btn-primary btn-lg poppins" href="#" role="button">Explore</a>
+        </div>
+        {{!-- three sample debates --}}
+        <div class="card-deck poppins">
+            <div class="card">
+                <img class="card-img-top" src="https://news.utexas.edu/sites/default/files/styles/news_article_main_image/public/photos/gun_control_830.jpg?itok=jvCefLBq"
+                    alt="Card image cap">
+                <div class="card-body">
+                    <h5 class="card-title">Gun Control</h5>
+                    <p class="card-text">Should concealed carry be permitted?</p>
+                    <p class="card-text">
+                        <small class="text-muted">Last updated 3 mins ago</small>
+                    </p>
+                </div>
+            </div>
+            <div class="card">
+                <img class="card-img-top" src="https://pbs.twimg.com/media/CTfqqSiWsAAIQm7.jpg" alt="Card image cap">
+                <div class="card-body">
+                    <h5 class="card-title">Abortion</h5>
+                    <p class="card-text">Should abortion be a legal practice?</p>
+                    <p class="card-text">
+                        <small class="text-muted">Last updated 3 mins ago</small>
+                    </p>
+                </div>
+            </div>
+            <div class="card">
+                <img class="card-img-top" src="https://www.intelligencesquaredus.org/sites/default/files/debates/103-death-penalty-debate.jpg"
+                    alt="Card image cap">
+                <div class="card-body">
+                    <h5 class="card-title">Death Penalty</h5>
+                    <p class="card-text">Should the death penalty be permitted?</p>
+                    <p class="card-text">
+                        <small class="text-muted">Last updated 3 mins ago</small>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    {{!-- Above is our landing page! --}}
+
+
+    {{!-- This is our login page! --}}
+    <div class="sign-up-box col-md-6">
+        <h1 class="rock-salt">Sign Up</h1>
+        <hr class="my-4">
+        <form class="poppins" id="login-form">
+            <div class="form-group">
+                <label for="name">Username</label>
+                <input type="text" class="form-control" id="username-input" aria-describedby="emailHelp" placeholder="Enter username">
+            </div>
+            <div class="form-group">
+                <label for="exampleInputEmail1">Email address</label>
+                <input type="email" class="form-control" id="email-input" aria-describedby="emailHelp" placeholder="Enter email">
+            </div>
+            <div class="form-group">
+                <label for="exampleInputPassword1">Password</label>
+                <input type="password" class="form-control" id="password-input" placeholder="Enter Password">
+            </div>
+            <button type="submit" class="btn btn-primary btn-lg">Submit</button>
+
+        </form>
+    </div>
+    {{!-- Above is our login page! --}}
+
+
+
+</div>

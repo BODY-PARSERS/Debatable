@@ -1,5 +1,21 @@
 $(document).ready(function(){
-    
+
+    // On-click event of the sign-up button
+    $(document).on("click", "#sign-up-dropdown", function(event){
+        event.preventDefault();
+        console.log("you clicked sign-up");
+        $(".landing-page").hide();
+        $(".sign-up-box").show();
+    })
+
+    // On-click event of the home button
+    $(document).on("click", "#home-button", function(event){
+        event.preventDefault();
+        console.log("you clicked home");
+        $(".sign-up-box").hide();
+        $(".landing-page").show();
+    })
+
     // Handling Sign Up Form Submission
     $(document).on("submit", "#login-form", function(event){
         event.preventDefault();

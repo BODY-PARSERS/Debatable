@@ -1,0 +1,36 @@
+.rock-salt{
+    font-family: 'Rock Salt', cursive;
+    font-style: oblique;
+}
+
+.poppins{
+    font-family: 'Poppins', sans-serif;
+}
+
+.navbar{
+    background: #e9ecef !important;
+}
+
+.sign-up-box{
+    border-radius: .3rem;
+    padding: 35px;
+    background: #e9ecef;
+    display: none;
+}
+
+.deb-pic {
+    border-radius: 50%;
+    position: absolute;
+    right: 140px;
+    top: 80px;
+}
+
+.button {
+    align-content: center;
+}
+
+.logo{
+    width: 65%;
+    height: 65%;
+    float: right;
+}
