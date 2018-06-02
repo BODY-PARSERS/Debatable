@@ -9,6 +9,7 @@ $(document).ready(function(){
         $(".sign-up-box").show();
     })
 
+    // On-click event of the go-to-homepage button
     $(document).on("click", "#user-home-page-dropdown", function (event) {
         event.preventDefault();
         console.log("you clicked go to home page");
