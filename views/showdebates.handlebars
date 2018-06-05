@@ -1,0 +1,21 @@
+<div class="container">
+    {{!-- This is our explore/join/continue page --}}  
+    <div class="explore-join-continue-page">
+
+        <div class="explore-wrapper d-block">
+            <div class="d-flex flex-wrap justify-content-start">
+                {{#each debates}}
+                <div class="card col-3 card-background-color">
+                    <h5 class="card-header rock-salt">{{topic}}</h5>
+                    <div class="card-body poppins">
+                        <p class="card-text">Share your own perspectives with others.</p>
+                        <a href="#" class="btn btn-primary btn-lg">Join Debate</a>
+                    </div>
+                </div>
+                {{/each}}
+            </div>
+        </div>
+
+    </div> 
+    {{!-- Above is our explore/join/continue page --}}  
+</div>

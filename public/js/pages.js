@@ -26,6 +26,15 @@ $(document).ready(function(){
         $(".user-home-page").hide();
         $(".landing-page").show();
     })
+    
+    // On-click event of the Join Button
+    $(document).on("click", "#home-button", function(event){
+        event.preventDefault();
+        console.log("you clicked home");
+        $(".page").hide();
+        $(".user-home-page").hide();
+        $(".landing-page").show();
+    })
 
     // Handling Sign Up Form Submission
     $(document).on("submit", "#login-form", function(event){
