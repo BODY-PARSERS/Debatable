@@ -1,7 +1,7 @@
-DROP DATABASE IF EXISTS fightme_db;
-CREATE DATABASE fightme_db;
+DROP DATABASE IF EXISTS debatable_db;
+CREATE DATABASE debatable_db;
 
-USE fightme_db;
+USE debatable_db;
 
 CREATE TABLE users
 (

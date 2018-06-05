@@ -1,8 +1,10 @@
 // ============================================================================================
 // DEPENDENCIES
 // ============================================================================================
+var dotenvResult = require("dotenv").config();
 var express = require("express");
 var bodyParser = require("body-parser");
+var exphbs = require("express-handlebars");
 
 // Require our models
 var db = require("./models");
@@ -16,6 +18,10 @@ var app = express();
 var PORT = process.env.PORT || 8080;
 // static directory
 app.use(express.static("public"))
+
+// Set Handlebars as the default templating engine.
+app.engine("handlebars", exphbs({ defaultLayout: "main" }));
+app.set("view engine", "handlebars");
 
 // Set Up App to Use Body-Parser
 // parse application/x-www-form-urlencoded

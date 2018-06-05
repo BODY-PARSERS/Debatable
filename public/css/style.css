@@ -1,0 +1,61 @@
+.rock-salt{
+    font-family: 'Rock Salt', cursive;
+    font-style: oblique;
+}
+
+.poppins{
+    font-family: 'Poppins', sans-serif;
+}
+
+.navbar{
+    background: #e9ecef !important;
+}
+
+.card-background-color{
+    background: #e9ecef !important;
+}
+
+.sign-up-box{
+    border-radius: .3rem;
+    padding: 35px;
+    background: #e9ecef;
+    display: none;
+}
+
+.user-home-page{
+    display: none;
+}
+
+.create-debate-box{
+    border-radius: .3rem;
+    padding: 35px;
+    background: #e9ecef;
+    display: none;
+}
+
+.deb-pic {
+    border-radius: 50%;
+    position: absolute;
+    right: 140px;
+    top: 80px;
+}
+
+.button {
+    align-content: center;
+}
+
+.logo{
+    width: 65%;
+    height: 65%;
+    float: right;
+}
+
+@media (max-width: 768px) {
+
+    .display-4 {
+    font-size: 2.9rem;
+    font-weight: 300;
+    line-height: 1.2;
+    }
+
+}
