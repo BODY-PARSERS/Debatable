@@ -26,6 +26,13 @@
     display: none;
 }
 
+.create-debate-box{
+    border-radius: .3rem;
+    padding: 35px;
+    background: #e9ecef;
+    display: none;
+}
+
 .deb-pic {
     border-radius: 50%;
     position: absolute;

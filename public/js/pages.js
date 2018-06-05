@@ -4,8 +4,7 @@ $(document).ready(function(){
     $(document).on("click", "#sign-up-dropdown", function(event){
         event.preventDefault();
         console.log("you clicked sign-up");
-        $(".landing-page").hide();
-        $(".user-home-page").hide();
+        $(".page-view").hide();
         $(".sign-up-box").show();
     })
 
@@ -13,8 +12,7 @@ $(document).ready(function(){
     $(document).on("click", "#user-home-page-dropdown", function (event) {
         event.preventDefault();
         console.log("you clicked go to home page");
-        $(".landing-page").hide();
-        $(".sign-up-box").hide();
+        $(".page-view").hide();
         $(".user-home-page").show();
     })
 
@@ -22,9 +20,16 @@ $(document).ready(function(){
     $(document).on("click", "#home-button", function(event){
         event.preventDefault();
         console.log("you clicked home");
-        $(".sign-up-box").hide();
-        $(".user-home-page").hide();
+        $(".page-view").hide();
         $(".landing-page").show();
+    })
+
+    // On-click event for create debate button
+    $(document).on("click", ".create-debate-button", function (event) {
+        event.preventDefault();
+        console.log("you clicked home");
+        $(".page-view").hide();
+        $(".create-debate-box").show();
     })
 
     // Handling Sign Up Form Submission
@@ -47,6 +52,29 @@ $(document).ready(function(){
                 console.log("User Added!");
                 console.log(result);
             }).catch(function(error){
+                console.log("There was an error:")
+                console.log(error)
+            })
+
+    })
+
+    // Handling Creating Debate Form Submission
+    $(document).on("click", "#create-debate", function (event) {
+        event.preventDefault();
+        console.log("you clicked submit!")
+        var topicInput = $("#topic-input").val().trim();
+
+        console.log(topicInput);
+
+        var newDebate = {
+            topic: topicInput,
+        }
+
+        $.post("/api/debates", newDebate)
+            .then(function (result) {
+                console.log("Debate Added!");
+                console.log(result);
+            }).catch(function (error) {
                 console.log("There was an error:")
                 console.log(error)
             })

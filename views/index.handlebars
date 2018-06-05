@@ -16,7 +16,7 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Create Debate</a>
+                    <a class="nav-link create-debate-button" href="#">Create Debate</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="#">Join Debate</a>
@@ -47,7 +47,7 @@
     
     
     {{!-- This is our landing page! --}}
-    <div class="landing-page">
+    <div class="landing-page page-view">
         {{!-- header --}}
         <div class="jumbotron">
             <h1 class="display-4 rock-salt">Debatable</h1>
@@ -95,7 +95,7 @@
     
     
     {{!-- This is our login page! --}}
-    <div class="sign-up-box col-md-6">
+    <div class="sign-up-box page-view col-md-6">
         <h1 class="rock-salt">Sign Up</h1>
         <hr class="my-4">
         <form class="poppins" id="login-form">
@@ -112,21 +112,20 @@
                 <input type="password" class="form-control" id="password-input" placeholder="Enter Password">
             </div>
             <button type="submit" class="btn btn-primary btn-lg">Submit</button>
-
         </form>
     </div>
     {{!-- Above is our login page! --}} 
     
 
     {{!-- This is our user home page --}}
-    <div class="user-home-page">
+    <div class="user-home-page page-view">
         <div class="user-home-page-wrapper d-block">
             <div class="d-flex justify-content-around">
                 <div class="card col-5 card-background-color">
                     <h5 class="card-header rock-salt">Create Your Own Debate</h5>
                     <div class="card-body poppins">
                         <p class="card-text">Share your own perspectives with others.</p>
-                        <a href="#" class="btn btn-primary btn-lg">Create Now</a>
+                        <a href="#" class="btn btn-primary btn-lg create-debate-button">Create Now</a>
                     </div>
                 </div>
                 <div class="card col-5 card-background-color">
@@ -147,15 +146,39 @@
                     </div>
                 </div>
                 <div class="card col-5 card-background-color">
-                    <h5 class="card-header rock-salt">Vote on a Debater</h5>
+                    <h5 class="card-header rock-salt">Continue a Debate</h5>
                     <div class="card-body poppins">
-                        <p class="card-text">Who is the winner of the debate?</p>
-                        <a href="#" class="btn btn-primary btn-lg">Vote Now</a>
+                        <p class="card-text">Start from where you left last time.</p>
+                        <a href="#" class="btn btn-primary btn-lg">Continue Now</a>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+    {{!-- Above is the user homepage --}}
 
+
+    {{!-- This is our create debate page --}}
+    
+    <div class="create-debate-box page-view col-6">
+    <h1 class="rock-salt">Create Debate</h1>
+    <hr class="my-4">
+    <form class="poppins">
+        <div class="form-group">
+            <label for="name">Topic of Debate</label>
+            <input type="text" class="form-control" id="topic-input" aria-describedby="emailHelp" placeholder="What is the topic you would like to debate on?">
+        </div>
+        <button type="submit" class="btn btn-primary btn-lg" id="create-debate">Submit</button>
+    </form>
+    </div>
+
+
+
+    {{!-- test area --}}
+
+
+
+
+    {{!-- above is a test area --}}
 
 </div>
