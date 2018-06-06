@@ -21,4 +21,20 @@ module.exports = function(app){
         })
     });
 
+    app.get("/api/users/:name/:password", function(request,response){
+        
+        db.User.findOne({
+            where:{
+                username: request.params.name,
+                password: request.params.password
+            }
+        }).then(function(data){
+            console.log(data)
+            response.json(data)
+        }).catch(function(error){
+            console.log(error)
+            response.send(error);
+        })
+    })
+
 };

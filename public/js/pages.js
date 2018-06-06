@@ -5,7 +5,9 @@ $(document).ready(function(){
 ////////////////////////////////////////////////////////////////////////////////////////////////////////
 
     var defaultPage = sessionStorage.getItem('defaultPage')
-    
+    var userId = localStorage.getItem("userId")
+    var userName = localStorage.getItem("userName")
+
     if (defaultPage == 'home') {
         console.log('you clicked home');
         $(".page-view").hide();
@@ -23,8 +25,19 @@ $(document).ready(function(){
         sessionStorage.clear();
     } else if (defaultPage == 'user-home') {
         console.log("you clicked go to user home page");
+        if(userId){
+            $(".page-view").hide();
+            $(".user-home-page").show();
+            sessionStorage.clear();
+        }else{
+            alert("Please Sign In");
+            sessionStorage.setItem('defaultPage', 'log-in');
+            location.href = '/' 
+        }
+    } else if (defaultPage == 'log-in') {
+        console.log("you clicked go to log in page");
         $(".page-view").hide();
-        $(".user-home-page").show();
+        $(".log-in-box").show();
         sessionStorage.clear();
     }
 
@@ -32,6 +45,12 @@ $(document).ready(function(){
     $(document).on("click", "#sign-up-dropdown", function(event){
         event.preventDefault();
         sessionStorage.setItem('defaultPage', 'sign-up');
+        location.href = '/'
+    })
+    // On-click event of the login button
+    $(document).on("click", "#log-in-dropdown", function(event){
+        event.preventDefault();
+        sessionStorage.setItem('defaultPage', 'log-in');
         location.href = '/'
     })
 
@@ -113,6 +132,35 @@ $(document).ready(function(){
 
     })
 
+    // Handling Log In Form Submission
+    $(document).on("submit", "#log-in-form", function(event){
+        event.preventDefault();
+        console.log("you clicked submit!")
+        var nameInput = $("#log-in-username").val().trim();
+        var passwordInput = $("#log-in-password").val().trim();
+
+        console.log(nameInput,passwordInput);
+
+        $("#log-in-username").val("");
+        $("#log-in-password").val("");
+
+
+        $.get("/api/users/"+nameInput+"/"+passwordInput)
+            .then( function(result){
+                console.log("Login Attempted!");
+                console.log(result);
+                localStorage.setItem('userId', result.id)
+                localStorage.setItem('userName', result.username)
+                sessionStorage.setItem('defaultPage', 'user-home')
+                location.href = '/';
+
+            }).catch(function(error){
+                console.log("There was an error:")
+                console.log(error)
+            })
+
+    })
+
     // Handling Creating Debate Form Submission
     $(document).on("click", "#create-debate", function (event) {
         event.preventDefault();
@@ -129,6 +177,7 @@ $(document).ready(function(){
             .then(function (result) {
                 console.log("Debate Added!");
                 console.log(result);
+
             }).catch(function (error) {
                 console.log("There was an error:")
                 console.log(error)
