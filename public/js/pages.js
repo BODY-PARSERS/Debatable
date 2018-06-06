@@ -6,17 +6,22 @@ $(document).ready(function(){
 
     var userId = sessionStorage.getItem("userId")
     var userName = sessionStorage.getItem("userName")
+    $("#name-display").html(userName)
 
-    // console.log("you clicked go to user home page");
-    // if(userId){
-    //     $(".page-view").hide();
-    //     $(".user-home-page").show();
-    //     sessionStorage.clear();
-    // }else{
-    //     alert("Please Sign In");
-    //     sessionStorage.setItem('defaultPage', 'log-in');
-    //     location.href = '/' 
-    // }
+
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////
+    $(document).on("click", "#user-home-page-dropdown",function(event){
+        console.log("you clicked go to user home page");
+        if(userId){
+            location.href = "/userhome"
+        }else{
+            alert("Please Sign In");
+            location.href = "/login"
+        }
+
+    })
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -66,11 +71,17 @@ $(document).ready(function(){
 
         $.get("/api/users/"+nameInput+"/"+passwordInput)
             .then( function(result){
-                console.log("Login Attempted!");
                 console.log(result);
-                sessionStorage.setItem('userId', result.id)
-                sessionStorage.setItem('userName', result.username)
-
+                if(result){
+                    console.log("Login succesful!");
+                    console.log("You are logged in as: ", result.username);
+                    sessionStorage.setItem('userId', result.id)
+                    sessionStorage.setItem('userName', result.username)
+                }else{
+                    console.log("login failed....");
+                    alert("Username and/or Password Incorrect")
+                }
+                location.href = "/userhome"
             }).catch(function(error){
                 console.log("There was an error:")
                 console.log(error)
@@ -108,7 +119,7 @@ $(document).ready(function(){
         console.log("you clicked join!")
         var debateId = $(this).data("debateid");
         console.log("debate ID: ",debateId);
-        // var topicInput = $("#topic-input").val().trim();
+        console.log("your user ID: ",userId);
 
         // console.log(topicInput);
 
@@ -127,6 +138,5 @@ $(document).ready(function(){
         //     })
 
     })
-
 
 });
