@@ -143,14 +143,18 @@ $(document).ready(function () {
 
     // Handling Creating Debate Form Submission
     $(document).on("click", "#create-debate", function (event) {
+
         event.preventDefault();
         console.log("you clicked submit!")
         var topicInput = $("#topic-input").val().trim();
+        var userId = sessionStorage.getItem('userId')
 
         console.log(topicInput);
+        console.log(userId);
 
         var newDebate = {
-            topic: topicInput,
+            userId: userId,
+            topic: topicInput
         }
 
         $("#topic-input").val("");
@@ -170,27 +174,32 @@ $(document).ready(function () {
 
     // Handling Join Debate Button
     $(document).on("click", ".join-button", function (event) {
+
         event.preventDefault();
         console.log("you clicked join!")
         var debateId = $(this).data("debateid");
         console.log("debate ID: ", debateId);
         console.log("your user ID: ", userId);
 
-        // console.log(topicInput);
+        var newDebate = {
+            userId: userId,
+            debateId: debateId
+        }
 
-        // var newDebate = {
-        //     topic: topicInput,
-        // }
+        $.ajax({
+            url: 'api/debates',
+            type: 'PUT',
+            data: newDebate
+        })
+            .then(function (result) {
 
-        // $.post("/api/debates", newDebate)
-        //     .then(function (result) {
-        //         console.log("Debate Added!");
-        //         console.log(result);
+                console.log("debate updated!!!")
+                console.log(result);
 
-        //     }).catch(function (error) {
-        //         console.log("There was an error:")
-        //         console.log(error)
-        //     })
+            }).catch(function (error) {
+                console.log("There was an error:")
+                console.log(error)
+            })
 
     })
 
