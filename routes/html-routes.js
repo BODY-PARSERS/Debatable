@@ -12,6 +12,18 @@ module.exports = function(app){
     app.get("/", function(request, response){
         response.render("index")
     });
+    app.get("/userhome", function(request, response){
+        response.render("userhome")
+    });
+    app.get("/signup", function(request, response){
+        response.render("signup")
+    });
+    app.get("/login", function(request, response){
+        response.render("login")
+    });
+    app.get("/createdebate", function(request, response){
+        response.render("createdebate")
+    });
     // join debate 
     app.get("/join", function(request, response){
         db.Debate.findAll({
@@ -20,6 +32,8 @@ module.exports = function(app){
             }
         }).then(function(data){
             var viewObject = {
+                className: "join",
+                pageName: "Join",
                 debates: data
             }
             response.render("showdebates", viewObject)
@@ -33,6 +47,8 @@ module.exports = function(app){
             }
         }).then(function(data){
             var viewObject = {
+                className: "continue",
+                pageName: "Continue",
                 debates: data
             }
             response.render("showdebates", viewObject)
@@ -46,6 +62,8 @@ module.exports = function(app){
             }
         }).then(function(data){
             var viewObject = {
+                className: "explore",
+                pageName: "Explore",
                 debates: data
             }
             response.render("showdebates", viewObject)
