@@ -21,6 +21,12 @@
     background: #e9ecef;
 }
 
+.log-in-box{
+    border-radius: .3rem;
+    padding: 35px;
+    background: #e9ecef;
+}
+
 .create-debate-box{
     border-radius: .3rem;
     padding: 35px;
