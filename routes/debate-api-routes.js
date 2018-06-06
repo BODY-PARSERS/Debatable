@@ -21,8 +21,21 @@ module.exports = function(app){
         }).catch(function(error){
             console.log(error)
         })
+    });
+    app.put("/api/joindebate", function(request, response){
+        db.Debate.findOne({
+            where:{
+                id: request.body.debateId
+            }
+        }).then(function(result){
+            result.addUsers(request.body.userId);
+            result.update({status: "ongoing"})
+            console.log(result);
+            response.json(result);
+        }).catch(function(error){
+            console.log(error)
+        })
 
-        
 
     });
 
