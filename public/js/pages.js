@@ -98,9 +98,12 @@ $(document).ready(function () {
             .then(function (result) {
                 console.log("User Added!");
                 console.log(result);
+                alert("You have created your account successfully!")
+                location.href = "/login"
             }).catch(function (error) {
                 console.log("There was an error:")
                 console.log(error)
+                alert("Error occurred! Please try again!")
             })
 
     })
@@ -124,13 +127,13 @@ $(document).ready(function () {
                 if (result) {
                     console.log("Login succesful!");
                     console.log("You are logged in as: ", result.username);
-                    sessionStorage.setItem('userId', result.id)
-                    sessionStorage.setItem('userName', result.username)
+                    sessionStorage.setItem('userId', result.id);
+                    sessionStorage.setItem('userName', result.username);
+                    location.href = "/userhome";
                 } else {
                     console.log("login failed....");
                     alert("Username and/or Password Incorrect")
                 }
-                location.href = "/userhome"
             }).catch(function (error) {
                 console.log("There was an error:")
                 console.log(error)
