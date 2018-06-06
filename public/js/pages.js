@@ -83,7 +83,7 @@ $(document).ready(function(){
 ////////////////////////////////////////////////////////////////////////////////////////////////////////
 
     // Handling Sign Up Form Submission
-    $(document).on("submit", "#login-form", function(event){
+    $(document).on("submit", "#sign-up-form", function(event){
         event.preventDefault();
         console.log("you clicked submit!")
         var nameInput = $("#username-input").val().trim();
@@ -96,6 +96,11 @@ $(document).ready(function(){
             username: nameInput,
             password: passwordInput,
         }
+
+        $("#username-input").val("");
+        $("#email-input").val("");
+        $("#password-input").val("");
+
 
         $.post("/api/users", newUser)
             .then( function(result){
