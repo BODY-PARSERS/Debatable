@@ -35,7 +35,63 @@
 </head>
 
 <body>
-    {{{ body }}}
+
+    <div class="container">
+
+        {{!-- Nav Bar Section --}}
+        <nav class="navbar navbar-expand-lg navbar-light bg-light poppins">
+        
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown"
+                aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+        
+            <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                <ul class="navbar-nav">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="#" id="home-button">Home
+                            <span class="sr-only">(current)</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link create-debate-button" href="#">Create</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link join-debate-button" href="#">Join</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link continue-debate-button" href="#">Continue</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link explore-debate-button" href="#">Explore</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Account
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                            <a class="dropdown-item" href="#" id="sign-up-dropdown">Sign Up</a>
+                            <a class="dropdown-item" href="#" id="log-in-dropdown">Log In</a>
+                            <a class="dropdown-item" href="#" id="user-home-page-dropdown">Go to Homepage</a>
+                        </div>
+                    </li>
+                    <li>
+                        <form class="form-inline">
+                            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search Topics</button>
+                        </form>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+        {{!-- Above is the Nav Bar Section! --}}
+
+        <br>
+
+        {{{ body }}}
+
+    </div>
+
 </body>
 
 </html>
