@@ -1,21 +1,40 @@
 $(document).ready(function () {
 
     ////////////////////////////////////////////////////////////////////////////////////////////////////////
-    //Changing Page Session//
+    // Changing Page Session
     ////////////////////////////////////////////////////////////////////////////////////////////////////////
-
+    
+    // global variables
     var userId = sessionStorage.getItem("userId")
     var userName = sessionStorage.getItem("userName")
-    var debateTopic = sessionStorage.getItem("joinDebateTopic")
+
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////
+    // Load Everything about the join specific debate page
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+    var joinDebateTopic = sessionStorage.getItem("joinDebateTopic")
     var joinDebateMessageNum = sessionStorage.getItem("joinDebateMessageNum")
 
-    $("#debate-topic").html(debateTopic)
+    $("#join-debate-topic").html(joinDebateTopic)
 
     for(var j = 0; j < joinDebateMessageNum; j++) {
-        debateMessageDiv = $("<div>").text(sessionStorage.getItem("joinDebateMessage"+j))
-        $("#message-display").append(debateMessageDiv);
+        joinDebateMessageDiv = $("<div>").addClass("debate-message-box").text(sessionStorage.getItem("joinDebateMessage"+j))
+        $("#join-message-display").append(joinDebateMessageDiv);
     }
 
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////
+    // Load Everything about the explore specific debate page
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+    var exploreDebateTopic = sessionStorage.getItem("exploreDebateTopic")
+    var exploreDebateMessageNum = sessionStorage.getItem("exploreDebateMessageNum")
+
+    $("#explore-debate-topic").html(exploreDebateTopic)
+
+    for (var j = 0; j < exploreDebateMessageNum; j++) {
+        exploreDebateMessageDiv = $("<div>").addClass("debate-message-box").text(sessionStorage.getItem("exploreDebateMessage" + j))
+        $("#explore-message-display").append(exploreDebateMessageDiv);
+    }
 
     ////////////////////////////////////////////////////////////////////////////////////////////////////////
     // Nav Bar on-click events
@@ -230,16 +249,53 @@ $(document).ready(function () {
                 console.log(error)
             })
 
-        location.href = '/specificdebate'
+        location.href = '/joinspecificdebate'
         
     })
 
-    // Handling Posting Message Button
-    $(document).on("click", "#post-button", function (event) {
+    // Handling Explore Debate Button
+    $(document).on("click", ".explore-button", function (event) {
+
+        event.preventDefault();
+
+        console.log("you clicked join!")
+        var debateId = $(this).data("debateid");
+        console.log("debate ID: ", debateId);
+        console.log("your user ID: ", userId);
+
+        sessionStorage.setItem("exploreDebateId", debateId)
+
+        $.get("api/debates/" + debateId)
+            .then(function (result) {
+                console.log(result);
+                sessionStorage.setItem("exploreDebateTopic", result.topic)
+            }).catch(function (error) {
+                console.log("There was an error:")
+                console.log(error)
+            })
+
+        $.get("api/messages/" + debateId)
+            .then(function (result) {
+                console.log(result);
+                sessionStorage.setItem("exploreDebateMessageNum", result.length)
+                for (var i = 0; i < result.length; i++) {
+                    sessionStorage.setItem("exploreDebateMessage" + i, result[i].content)
+                }
+            }).catch(function (error) {
+                console.log("There was an error:")
+                console.log(error)
+            })
+
+        location.href = '/explorespecificdebate'
+
+    })
+
+    // Handling Join Debate Posting Message Button
+    $(document).on("click", "#join-post-button", function (event) {
 
         event.preventDefault();
         console.log("you clicked post");
-        var content = $("#message-input").val().trim();
+        var content = $("#join-message-input").val().trim();
         var userId = sessionStorage.getItem("userId");
         var debateId = sessionStorage.getItem("joinDebateId")
         var userName = sessionStorage.getItem("userName")
@@ -250,7 +306,7 @@ $(document).ready(function () {
             content: userName + ": " + content
         }
 
-        $("#message-input").val("");
+        $("#join-message-input").val("");
 
         $.post("api/messages", newMessage)
             .then(function (result) {
@@ -274,7 +330,7 @@ $(document).ready(function () {
                         console.log(error)
                     })
 
-                location.href = "/specificdebate"
+                location.href = "/joinspecificdebate"
             }, 100);
 
     })

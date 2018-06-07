@@ -56,11 +56,7 @@ module.exports = function(app){
     });
     // explore debates 
     app.get("/explore", function(request, response){
-        db.Debate.findAll({
-            where:{
-                status: "closed"
-            }
-        }).then(function(data){
+        db.Debate.findAll({}).then(function(data){
             var viewObject = {
                 className: "explore",
                 pageName: "Explore",
@@ -69,19 +65,15 @@ module.exports = function(app){
             response.render("showdebates", viewObject)
         })
     });
-    // specific debate page
-    app.get("/specificdebate", function (request, response) {
-        db.Message.findAll({
-            where:{
-                debate_id: "2",
-            }
-        }).then(function(data){
-            var viewObject = {
-                content: data.content
-            }
-            response.render("specificdebate", viewObject)
-        })
-        
+    
+    // join specific debate page
+    app.get("/joinspecificdebate", function (request, response) {
+            response.render("joinspecificdebates")
+    });
+
+    // explore specific debate page
+    app.get("/explorespecificdebate", function (request, response) {
+        response.render("explorespecificdebates")
     });
     
 };
