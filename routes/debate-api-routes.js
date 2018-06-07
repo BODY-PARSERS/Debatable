@@ -24,17 +24,40 @@ module.exports = function(app){
         })
     });
 
-    app.put("/api/debates", function(request, response){
+    app.put("/api/debates", function (request, response) {
         db.Debate.findOne({
-            where:{
+            where: {
                 id: request.body.debateId
             }
-        }).then(function(result){
-            result.addUsers(request.body.userId);
-            result.update({status: "ongoing"})
-            console.log(result);
-            response.json(result);
-        }).catch(function(error){
+        }).then(function (result) {
+            
+            db.Debate.findAndCountAll({
+                include: [db.User],
+                where: { id: request.body.debateId }
+            }).then(function (joinResults) {
+                debateUserCount = joinResults.count
+                console.log(debateUserCount);
+            
+                if (debateUserCount < 2) {
+                    result.addUsers(request.body.userId);
+                    console.log(result);
+                    response.json(result);
+                    console.log(joinResults.rows[0].Users[0].dataValues.id)
+                    debateCreatorId = joinResults.rows[0].Users[0].dataValues.id
+                    
+                    if (debateCreatorId != request.body.userId){
+                        debateUserCount += 1;
+                        if (debateUserCount = 2) {
+                            result.update({ status: "ongoing" })
+                        }
+                    }
+
+                } else {
+                    console.log("Error Occurred!")
+                }
+            })
+    
+        }).catch(function (error) {
             console.log(error)
         })
 
@@ -42,5 +65,5 @@ module.exports = function(app){
     });
 
 
-
 };
+
