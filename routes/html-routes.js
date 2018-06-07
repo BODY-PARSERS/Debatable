@@ -71,13 +71,13 @@ module.exports = function(app){
     });
     // specific debate page
     app.get("/specificdebate", function (request, response) {
-        db.Debate.findAll({
+        db.Message.findAll({
             where:{
-                id: request.body.debateId
+                debate_id: "2",
             }
         }).then(function(data){
             var viewObject = {
-                debateTopic: data.topic
+                content: data.content
             }
             response.render("specificdebate", viewObject)
         })
