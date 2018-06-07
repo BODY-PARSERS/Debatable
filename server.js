@@ -5,8 +5,6 @@ var dotenvResult = require("dotenv").config();
 var express = require("express");
 var bodyParser = require("body-parser");
 var exphbs = require("express-handlebars");
-var http = require('http').Server(app);
-var io = require('socket.io')(http);
 
 // Require our models
 var db = require("./models");
@@ -30,18 +28,6 @@ app.set("view engine", "handlebars");
 app.use(bodyParser.urlencoded({ extended: true }));
 // parse application/json
 app.use(bodyParser.json());
-
-    //----------------------------------Debate MSG-------------------
-    app.get('/debate', function(req, res){
-      res.sendFile(__dirname + '../debatePage.html');
-      });
-    
-        io.on('connection', function(socket){
-          socket.on('chat message', function(msg){
-              io.emit('chat message', msg);
-          });
-        });
-    //----------------------------------------------------------
 
 // ============================================================================================
 // ROUTES
