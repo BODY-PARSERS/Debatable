@@ -70,4 +70,16 @@ module.exports = function(app){
         })
     });
 
+    //----------------------------------Debate MSG-------------------
+app.get('/debate', function(req, res){
+    res.sendFile(__dirname + '../debatePage.html');
+    });
+  
+      io.on('connection', function(socket){
+        socket.on('chat message', function(msg){
+            io.emit('chat message', msg);
+        });
+      });
+  //----------------------------------------------------------
+
 };
