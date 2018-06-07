@@ -50,6 +50,14 @@
     float: right;
 }
 
+.debate-message-box{
+    padding: 10px;
+    border-radius: 5px;
+    border: solid 1px lightgray;
+    margin-bottom: 10px;
+
+}
+
 @media (max-width: 768px) {
 
     .display-4 {
