@@ -42,14 +42,22 @@ module.exports = function(app){
     // continue debate 
     app.get("/continue", function(request, response){
         db.Debate.findAll({
+            include: [db.User],
             where:{
                 status: "ongoing"
             }
         }).then(function(data){
+            for (var i = 0 ; i < data.length; i++) {
+                var specificDebateUsersId = []
+                for (var j = 0; j < data[i].Users.length; j++) {
+                    specificDebateUsersId.push(data[i].Users[j].id)
+                } 
+                data[i]["debateusersId"] = specificDebateUsersId.toString()
+            }
             var viewObject = {
                 className: "continue",
                 pageName: "Continue",
-                debates: data
+                debates: data,
             }
             response.render("showdebates", viewObject)
         })
@@ -57,6 +65,7 @@ module.exports = function(app){
     // explore debates 
     app.get("/explore", function(request, response){
         db.Debate.findAll({}).then(function(data){
+            // data.forEach(console.log(data[0].Users[0].id))
             var viewObject = {
                 className: "explore",
                 pageName: "Explore",
@@ -74,6 +83,11 @@ module.exports = function(app){
     // explore specific debate page
     app.get("/explorespecificdebate", function (request, response) {
         response.render("explorespecificdebates")
+    });
+
+    // continue specific debate page
+    app.get("/explorespecificdebate", function (request, response) {
+        response.render("continuespecificdebates")
     });
     
 };
