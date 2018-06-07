@@ -12,7 +12,7 @@ $(document).ready(function () {
     $("#debate-topic").html(debateTopic)
 
     for(var j = 0; j < joinDebateMessageNum; j++) {
-        debateMessageDiv = $("<div>").addClass("debate-message-box").text(sessionStorage.getItem("joinDebateMessage"+j))
+        debateMessageDiv = $("<div>").text(sessionStorage.getItem("joinDebateMessage"+j))
         $("#message-display").append(debateMessageDiv);
     }
 
