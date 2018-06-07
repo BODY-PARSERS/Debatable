@@ -9,7 +9,6 @@ $(document).ready(function () {
     var debateTopic = sessionStorage.getItem("joinDebateTopic")
     var joinDebateMessageNum = sessionStorage.getItem("joinDebateMessageNum")
 
-    $("#name-display").html(userName)
     $("#debate-topic").html(debateTopic)
 
     for(var j = 0; j < joinDebateMessageNum; j++) {
@@ -185,6 +184,7 @@ $(document).ready(function () {
     $(document).on("click", ".join-button", function (event) {
 
         event.preventDefault();
+
         console.log("you clicked join!")
         var debateId = $(this).data("debateid");
         console.log("debate ID: ", debateId);
@@ -242,11 +242,12 @@ $(document).ready(function () {
         var content = $("#message-input").val().trim();
         var userId = sessionStorage.getItem("userId");
         var debateId = sessionStorage.getItem("joinDebateId")
+        var userName = sessionStorage.getItem("userName")
 
         var newMessage = {
             userId: userId,
             debateId: debateId,
-            content: content
+            content: userName + ": " + content
         }
 
         $("#message-input").val("");
@@ -260,19 +261,22 @@ $(document).ready(function () {
                 console.log(error)
             })
 
-        $.get("api/messages/" + debateId)
-            .then(function (result) {
-                console.log(result);
-                sessionStorage.setItem("joinDebateMessageNum", result.length)
-                for (var i = 0; i < result.length; i++) {
-                    sessionStorage.setItem("joinDebateMessage" + i, result[i].content)
-                }
-            }).catch(function (error) {
-                console.log("There was an error:")
-                console.log(error)
-            })
-            
-        location.href = "/specificdebate"
+            setTimeout(() => {
+                $.get("api/messages/" + debateId)
+                    .then(function (result) {
+                        console.log(result);
+                        sessionStorage.setItem("joinDebateMessageNum", result.length)
+                        for (var i = 0; i < result.length; i++) {
+                            sessionStorage.setItem("joinDebateMessage" + i, result[i].content)
+                        }
+                    }).catch(function (error) {
+                        console.log("There was an error:")
+                        console.log(error)
+                    })
+
+                location.href = "/specificdebate"
+            }, 100);
+
     })
 
 });
