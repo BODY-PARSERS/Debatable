@@ -69,5 +69,19 @@ module.exports = function(app){
             response.render("showdebates", viewObject)
         })
     });
+    // specific debate page
+    app.get("/specificdebate", function (request, response) {
+        db.Debate.findAll({
+            where:{
+                id: request.body.debateId
+            }
+        }).then(function(data){
+            var viewObject = {
+                debateTopic: data.topic
+            }
+            response.render("specificdebate", viewObject)
+        })
+        
+    });
     
 };

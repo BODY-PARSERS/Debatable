@@ -6,7 +6,9 @@ $(document).ready(function () {
 
     var userId = sessionStorage.getItem("userId")
     var userName = sessionStorage.getItem("userName")
+    var debateTopic = sessionStorage.getItem("joinDebateTopic")
     $("#name-display").html(userName)
+    $("#debate-topic").html(debateTopic)
 
 
     ////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -190,17 +192,26 @@ $(document).ready(function () {
             url: 'api/debates',
             type: 'PUT',
             data: newDebate
-        })
-            .then(function (result) {
-
+        }).then(function (result) {
                 console.log("debate updated!!!")
                 console.log(result);
-
             }).catch(function (error) {
                 console.log("There was an error:")
                 console.log(error)
             })
 
+
+        $.get("api/debates/" + debateId)
+            .then(function (result) {
+                console.log(result);
+                sessionStorage.setItem("joinDebateTopic", result.topic)
+            }).catch(function (error) {
+                console.log("There was an error:")
+                console.log(error)
+            })
+
+        location.href = '/specificdebate'
+        
     })
 
 });

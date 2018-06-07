@@ -36,13 +36,10 @@ module.exports = function(app){
                 where: { id: request.body.debateId }
             }).then(function (joinResults) {
                 debateUserCount = joinResults.count
-                console.log(debateUserCount);
             
                 if (debateUserCount < 2) {
                     result.addUsers(request.body.userId);
-                    console.log(result);
                     response.json(result);
-                    console.log(joinResults.rows[0].Users[0].dataValues.id)
                     debateCreatorId = joinResults.rows[0].Users[0].dataValues.id
                     
                     if (debateCreatorId != request.body.userId){
@@ -63,6 +60,22 @@ module.exports = function(app){
 
 
     });
+
+
+    app.get("/api/debates/:debateId", function (request, response) {
+
+        db.Debate.findOne({
+            where: {
+                id: request.params.debateId,
+            }
+        }).then(function (data) {
+            console.log(data)
+            response.json(data)
+        }).catch(function (error) {
+            console.log(error)
+            response.send(error);
+        })
+    })
 
 
 };
