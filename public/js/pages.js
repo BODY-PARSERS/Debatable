@@ -182,6 +182,8 @@ $(document).ready(function () {
         var debateId = $(this).data("debateid");
         console.log("debate ID: ", debateId);
         console.log("your user ID: ", userId);
+        
+        sessionStorage.setItem("joinDebateId", debateId)
 
         var newDebate = {
             userId: userId,
@@ -200,7 +202,6 @@ $(document).ready(function () {
                 console.log(error)
             })
 
-
         $.get("api/debates/" + debateId)
             .then(function (result) {
                 console.log(result);
@@ -212,6 +213,34 @@ $(document).ready(function () {
 
         location.href = '/specificdebate'
         
+    })
+
+    // Handling Posting Message Button
+    $(document).on("click", "#post-button", function (event) {
+
+        event.preventDefault();
+        console.log("you clicked post");
+        var content = $("#message-input").val().trim();
+        var userId = sessionStorage.getItem("userId");
+        var debateId = sessionStorage.getItem("joinDebateId")
+
+        var newMessage = {
+            userId: userId,
+            debateId: debateId,
+            content: content
+        }
+
+        $("#message-input").val("");
+
+        $.post("api/messages", newMessage)
+            .then(function (result) {
+                console.log("Message Added!");
+                console.log(result);
+            }).catch(function (error) {
+                console.log("There was an error:")
+                console.log(error)
+            })
+
     })
 
 });
