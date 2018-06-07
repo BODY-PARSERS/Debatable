@@ -36,7 +36,7 @@ module.exports = function(app){
                 pageName: "Join",
                 debates: data
             }
-            response.render("joindebates", viewObject)
+            response.render("showdebates", viewObject)
         })
     });
     // continue debate 
@@ -51,7 +51,7 @@ module.exports = function(app){
                 pageName: "Continue",
                 debates: data
             }
-            response.render("continuedebates", viewObject)
+            response.render("showdebates", viewObject)
         })
     });
     // explore debates 
@@ -66,7 +66,7 @@ module.exports = function(app){
                 pageName: "Explore",
                 debates: data
             }
-            response.render("exploredebates", viewObject)
+            response.render("showdebates", viewObject)
         })
     });
     // specific debate page
