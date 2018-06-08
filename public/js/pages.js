@@ -367,9 +367,10 @@ $(document).ready(function () {
                         console.log("There was an error:")
                         console.log(error)
                     })
-
-                location.href = "/joinspecificdebate"
-            }, 100);
+                    setTimeout(() => {
+                        location.href = "/joinspecificdebate"
+                    }, 100);
+            }, 150);
 
     })
 
@@ -406,7 +407,7 @@ $(document).ready(function () {
                 console.log(error)
             })
 
-        location.href = '/continuespecificdebate'
+        location.href = '/continuespecificdebate' 
 
     })
 
@@ -450,9 +451,10 @@ $(document).ready(function () {
                     console.log("There was an error:")
                     console.log(error)
                 })
-
-            location.href = "/continuespecificdebate"
-        }, 100);
+                setTimeout(() => {
+                    location.href = "/continuespecificdebate" 
+                }, 100);
+        }, 150);
 
     })
 
