@@ -58,6 +58,7 @@ module.exports = function(app){
                 className: "continue",
                 pageName: "Continue",
                 debates: data,
+                numberofdebates: data.length
             }
             response.render("showdebates", viewObject)
         })

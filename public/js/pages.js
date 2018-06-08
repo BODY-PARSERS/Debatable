@@ -37,8 +37,25 @@ $(document).ready(function () {
     }
 
     ////////////////////////////////////////////////////////////////////////////////////////////////////////
-    a = $("#info-store").val()
-    console.log(a)
+    var numberOfDebates = $("#numberOfDebates").data("numberofdebates")
+
+    $(".continue-div").hide()
+
+    for (var i = 0; i < numberOfDebates; i++) {
+
+        var usersIdForDebate = $("#continue"+(i+1)).data("usersid")
+        if (usersIdForDebate.length >= 2) {
+            usersIdForDebate = usersIdForDebate.split(",")
+            if (usersIdForDebate.includes(userId)) {
+                $("#continue" + (i+1) + "-div").show()
+            }
+        }
+        if (usersIdForDebate == userId) {
+            $("#continue" + (i+1) + "-div").show()
+        }
+
+    }
+
 
     ////////////////////////////////////////////////////////////////////////////////////////////////////////
     // Nav Bar on-click events
