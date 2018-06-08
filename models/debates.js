@@ -8,6 +8,13 @@ module.exports = function (sequelize, DataTypes) {
                 len: [1, 100]
             }
         },
+        description: {
+            type: DataTypes.STRING,
+            allowNull: false,
+            validate: {
+                len: [1, 500]
+            }
+        },
         user1_votes: {
             type: DataTypes.INTEGER,
             allowNull: false,
