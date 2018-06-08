@@ -23,4 +23,18 @@ module.exports = function(app){
         })
     });
 
+    app.get("/api/messages/:debateId", function(request, response){
+        db.Message.findAll({
+            where: {
+                debate_id: request.params.debateId
+            }
+        }).then(function(data){
+            console.log(data)
+            response.json(data)
+        }).catch(function(error){
+            console.log(error)
+            response.send(error);
+        })
+    })
+
 };
