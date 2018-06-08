@@ -370,7 +370,7 @@ $(document).ready(function () {
                     })
                     setTimeout(() => {
                         location.href = "/joinspecificdebate"
-                    }, 500);
+                    }, 750);
             }, 250);
 
     })
@@ -454,7 +454,7 @@ $(document).ready(function () {
                 })
                 setTimeout(() => {
                     location.href = "/continuespecificdebate" 
-                }, 500);
+                }, 750);
         }, 250);
 
     })
