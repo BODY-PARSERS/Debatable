@@ -3,7 +3,7 @@ $(document).ready(function () {
     ////////////////////////////////////////////////////////////////////////////////////////////////////////
     // Changing Page Session
     ////////////////////////////////////////////////////////////////////////////////////////////////////////
-    
+
     // global variables
     var userId = sessionStorage.getItem("userId")
     var userName = sessionStorage.getItem("userName")
@@ -18,8 +18,8 @@ $(document).ready(function () {
 
     $("#join-debate-topic").html(joinDebateTopic)
 
-    for(var j = 0; j < joinDebateMessageNum; j++) {
-        joinDebateMessageDiv = $("<div>").addClass("debate-message-box").text(sessionStorage.getItem("joinDebateMessage"+j))
+    for (var j = 0; j < joinDebateMessageNum; j++) {
+        joinDebateMessageDiv = $("<div>").addClass("debate-message-box").text(sessionStorage.getItem("joinDebateMessage" + j))
         $("#join-message-display").append(joinDebateMessageDiv);
     }
 
@@ -47,7 +47,7 @@ $(document).ready(function () {
 
     for (var i = 1; i <= numberOfDebates; i++) {
 
-        var usersIdForDebate = $("#continue"+i).data("usersid")
+        var usersIdForDebate = $("#continue" + i).data("usersid")
         console.log($("#continue1").data("usersid"))
         if (usersIdForDebate.length >= 2) {
             usersIdForDebate = usersIdForDebate.split(",")
@@ -78,7 +78,7 @@ $(document).ready(function () {
     ////////////////////////////////////////////////////////////////////////////////////////////////////////
     // Nav Bar on-click events
     ////////////////////////////////////////////////////////////////////////////////////////////////////////
-    
+
     // Go to user homepage
     $(document).on("click", "#user-home-page-dropdown", function (event) {
         console.log("you clicked go to user home page");
@@ -260,36 +260,42 @@ $(document).ready(function () {
             type: 'PUT',
             data: newDebate
         }).then(function (result) {
-                console.log("debate updated!!!")
-                console.log(result);
-            }).catch(function (error) {
-                console.log("There was an error:")
-                console.log(error)
-            })
+            console.log("debate updated!!!")
+            console.log(result);
+        }).catch(function (error) {
+            console.log("There was an error:")
+            console.log(error)
+        })
 
-        $.get("api/debates/" + debateId)
-            .then(function (result) {
-                console.log(result);
-                sessionStorage.setItem("joinDebateTopic", result.topic)
-            }).catch(function (error) {
-                console.log("There was an error:")
-                console.log(error)
-            })
+        setTimeout(() => {
+            $.get("api/debates/" + debateId)
+                .then(function (result) {
+                    console.log(result);
+                    sessionStorage.setItem("joinDebateTopic", result.topic)
+                }).catch(function (error) {
+                    console.log("There was an error:")
+                    console.log(error)
+                })
+        }, 200);
 
-        $.get("api/messages/" + debateId)
-            .then(function (result) {
-                console.log(result);
-                sessionStorage.setItem("joinDebateMessageNum", result.length)
-                for (var i = 0; i < result.length; i++) {
-                    sessionStorage.setItem("joinDebateMessage" + i, result[i].content)
-                }
-            }).catch(function (error) {
-                console.log("There was an error:")
-                console.log(error)
-            })
+        setTimeout(() => {
+            $.get("api/messages/" + debateId)
+                .then(function (result) {
+                    console.log(result);
+                    sessionStorage.setItem("joinDebateMessageNum", result.length)
+                    for (var i = 0; i < result.length; i++) {
+                        sessionStorage.setItem("joinDebateMessage" + i, result[i].content)
+                    }
+                }).catch(function (error) {
+                    console.log("There was an error:")
+                    console.log(error)
+                })
+        }, 400);
 
-        location.href = '/joinspecificdebate'
-        
+        setTimeout(() => {
+            location.href = '/joinspecificdebate'
+        }, 600);
+
     })
 
     // Handling Explore Debate Button
@@ -313,19 +319,23 @@ $(document).ready(function () {
                 console.log(error)
             })
 
-        $.get("api/messages/" + debateId)
-            .then(function (result) {
-                console.log(result);
-                sessionStorage.setItem("exploreDebateMessageNum", result.length)
-                for (var i = 0; i < result.length; i++) {
-                    sessionStorage.setItem("exploreDebateMessage" + i, result[i].content)
-                }
-            }).catch(function (error) {
-                console.log("There was an error:")
-                console.log(error)
-            })
+        setTimeout(() => {
+            $.get("api/messages/" + debateId)
+                .then(function (result) {
+                    console.log(result);
+                    sessionStorage.setItem("exploreDebateMessageNum", result.length)
+                    for (var i = 0; i < result.length; i++) {
+                        sessionStorage.setItem("exploreDebateMessage" + i, result[i].content)
+                    }
+                }).catch(function (error) {
+                    console.log("There was an error:")
+                    console.log(error)
+                })
+        }, 200);
 
-        location.href = '/explorespecificdebate'
+        setTimeout(() => {
+            location.href = '/explorespecificdebate'
+        }, 400);
 
     })
 
@@ -356,22 +366,22 @@ $(document).ready(function () {
                 console.log(error)
             })
 
+        setTimeout(() => {
+            $.get("api/messages/" + debateId)
+                .then(function (result) {
+                    console.log(result);
+                    sessionStorage.setItem("joinDebateMessageNum", result.length)
+                    for (var i = 0; i < result.length; i++) {
+                        sessionStorage.setItem("joinDebateMessage" + i, result[i].content)
+                    }
+                }).catch(function (error) {
+                    console.log("There was an error:")
+                    console.log(error)
+                })
             setTimeout(() => {
-                $.get("api/messages/" + debateId)
-                    .then(function (result) {
-                        console.log(result);
-                        sessionStorage.setItem("joinDebateMessageNum", result.length)
-                        for (var i = 0; i < result.length; i++) {
-                            sessionStorage.setItem("joinDebateMessage" + i, result[i].content)
-                        }
-                    }).catch(function (error) {
-                        console.log("There was an error:")
-                        console.log(error)
-                    })
-                    setTimeout(() => {
-                        location.href = "/joinspecificdebate"
-                    }, 500);
-            }, 250);
+                location.href = "/joinspecificdebate"
+            }, 750);
+        }, 250);
 
     })
 
@@ -396,19 +406,23 @@ $(document).ready(function () {
                 console.log(error)
             })
 
-        $.get("api/messages/" + debateId)
-            .then(function (result) {
-                console.log(result);
-                sessionStorage.setItem("continueDebateMessageNum", result.length)
-                for (var i = 0; i < result.length; i++) {
-                    sessionStorage.setItem("continueDebateMessage" + i, result[i].content)
-                }
-            }).catch(function (error) {
-                console.log("There was an error:")
-                console.log(error)
-            })
+        setTimeout(() => {
+            $.get("api/messages/" + debateId)
+                .then(function (result) {
+                    console.log(result);
+                    sessionStorage.setItem("continueDebateMessageNum", result.length)
+                    for (var i = 0; i < result.length; i++) {
+                        sessionStorage.setItem("continueDebateMessage" + i, result[i].content)
+                    }
+                }).catch(function (error) {
+                    console.log("There was an error:")
+                    console.log(error)
+                })
+        }, 200);
 
-        location.href = '/continuespecificdebate' 
+        setTimeout(() => {
+            location.href = '/continuespecificdebate'
+        }, 400);
 
     })
 
@@ -452,9 +466,9 @@ $(document).ready(function () {
                     console.log("There was an error:")
                     console.log(error)
                 })
-                setTimeout(() => {
-                    location.href = "/continuespecificdebate" 
-                }, 500);
+            setTimeout(() => {
+                location.href = "/continuespecificdebate"
+            }, 750);
         }, 250);
 
     })
