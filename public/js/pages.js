@@ -370,8 +370,8 @@ $(document).ready(function () {
                     })
                     setTimeout(() => {
                         location.href = "/joinspecificdebate"
-                    }, 300);
-            }, 150);
+                    }, 500);
+            }, 250);
 
     })
 
@@ -454,8 +454,8 @@ $(document).ready(function () {
                 })
                 setTimeout(() => {
                     location.href = "/continuespecificdebate" 
-                }, 300);
-        }, 150);
+                }, 500);
+        }, 250);
 
     })
 
