@@ -45,17 +45,18 @@ $(document).ready(function () {
 
     $(".continue-div").hide()
 
-    for (var i = 0; i < numberOfDebates; i++) {
+    for (var i = 1; i <= numberOfDebates; i++) {
 
-        var usersIdForDebate = $("#continue"+(i+1)).data("usersid")
+        var usersIdForDebate = $("#continue"+i).data("usersid")
+        console.log($("#continue1").data("usersid"))
         if (usersIdForDebate.length >= 2) {
             usersIdForDebate = usersIdForDebate.split(",")
             if (usersIdForDebate.includes(userId)) {
-                $("#continue" + (i+1) + "-div").show()
+                $("#continue" + (i) + "-div").show()
             }
         }
         if (usersIdForDebate == userId) {
-            $("#continue" + (i+1) + "-div").show()
+            $("#continue" + (i) + "-div").show()
         }
 
     }
@@ -367,9 +368,10 @@ $(document).ready(function () {
                         console.log("There was an error:")
                         console.log(error)
                     })
-
-                location.href = "/joinspecificdebate"
-            }, 100);
+                    setTimeout(() => {
+                        location.href = "/joinspecificdebate"
+                    }, 100);
+            }, 150);
 
     })
 
@@ -406,7 +408,7 @@ $(document).ready(function () {
                 console.log(error)
             })
 
-        location.href = '/continuespecificdebate'
+        location.href = '/continuespecificdebate' 
 
     })
 
@@ -450,9 +452,10 @@ $(document).ready(function () {
                     console.log("There was an error:")
                     console.log(error)
                 })
-
-            location.href = "/continuespecificdebate"
-        }, 100);
+                setTimeout(() => {
+                    location.href = "/continuespecificdebate" 
+                }, 100);
+        }, 150);
 
     })
 
