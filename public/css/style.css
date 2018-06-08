@@ -66,3 +66,26 @@
     }
 
 }
+
+body{
+    background-image: url("./../images/city1.jpg");
+    background-size: 1500px;
+}
+
+.card{
+    opacity:0.75;
+}
+
+.card-body{
+    background-color:black;
+    color:whitesmoke;
+}
+
+.navbar{
+    background-color: black;
+    color:whitesmoke;
+}
+
+.navbar-default {
+    background-color: rgb(2, 2, 2);
+    border-color: #E7E7E7;
