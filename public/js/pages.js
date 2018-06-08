@@ -343,7 +343,9 @@ $(document).ready(function () {
                 }).catch(function (error) {
                     console.log("There was an error:")
                     console.log(error)
-
+                })
+            })
+            
         setTimeout(() => {
             location.href = '/explorespecificdebate'
         }, 400);
