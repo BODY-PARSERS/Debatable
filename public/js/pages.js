@@ -43,23 +43,23 @@ $(document).ready(function () {
 
     var numberOfDebates = $("#numberOfDebates").data("numberofdebates")
 
-    $(".continue-div").hide()
+    // $(".continue-div").hide()
 
-    for (var i = 1; i <= numberOfDebates; i++) {
+    // for (var i = 1; i <= numberOfDebates; i++) {
 
-        var usersIdForDebate = $("#continue"+i).data("usersid")
-        console.log($("#continue1").data("usersid"))
-        if (usersIdForDebate.length >= 2) {
-            usersIdForDebate = usersIdForDebate.split(",")
-            if (usersIdForDebate.includes(userId)) {
-                $("#continue" + (i) + "-div").show()
-            }
-        }
-        if (usersIdForDebate == userId) {
-            $("#continue" + (i) + "-div").show()
-        }
+    //     var usersIdForDebate = $("#continue"+i).data("usersid")
+    //     console.log($("#continue1").data("usersid"))
+    //     if (usersIdForDebate.length >= 2) {
+    //         usersIdForDebate = usersIdForDebate.split(",")
+    //         if (usersIdForDebate.includes(userId)) {
+    //             $("#continue" + (i) + "-div").show()
+    //         }
+    //     }
+    //     if (usersIdForDebate == userId) {
+    //         $("#continue" + (i) + "-div").show()
+    //     }
 
-    }
+    // }
 
     ////////////////////////////////////////////////////////////////////////////////////////////////////////
     // Load Everything about the continue specific debate page
