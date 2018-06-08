@@ -12,7 +12,7 @@ $(document).ready(function () {
     ////////////////////////////////////////////////////////////////////////////////////////////////////////
     // Load Everything about the join specific debate page
     ////////////////////////////////////////////////////////////////////////////////////////////////////////
-
+ 
     var joinDebateTopic = sessionStorage.getItem("joinDebateTopic")
     var joinDebateDescription = sessionStorage.getItem("joinDebateDescription")
     var joinDebateMessageNum = sessionStorage.getItem("joinDebateMessageNum")
@@ -277,6 +277,7 @@ $(document).ready(function () {
             console.log(error)
         })
 
+
         setTimeout(() => {
             $.get("api/debates/" + debateId)
                 .then(function (result) {
@@ -342,8 +343,6 @@ $(document).ready(function () {
                 }).catch(function (error) {
                     console.log("There was an error:")
                     console.log(error)
-                })
-        }, 200);
 
         setTimeout(() => {
             location.href = '/explorespecificdebate'
@@ -391,6 +390,7 @@ $(document).ready(function () {
                     console.log(error)
                 })
             setTimeout(() => {
+
                 location.href = "/joinspecificdebate"
             }, 750);
         }, 250);
@@ -434,7 +434,9 @@ $(document).ready(function () {
         }, 200);
 
         setTimeout(() => {
+
             location.href = '/continuespecificdebate'
+          
         }, 400);
 
     })
@@ -479,9 +481,11 @@ $(document).ready(function () {
                     console.log("There was an error:")
                     console.log(error)
                 })
+
             setTimeout(() => {
                 location.href = "/continuespecificdebate"
             }, 750);
+
         }, 250);
 
     })
