@@ -11,6 +11,7 @@ module.exports = function(app){
     app.post("/api/debates", function(request, response){
         newDebate = {
             topic: request.body.topic,
+            description: request.body.description,
             userId: request.body.userId
         }
         db.Debate.create(newDebate).then(function(result){
