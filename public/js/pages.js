@@ -7,6 +7,7 @@ $(document).ready(function () {
     // global variables
     var userId = sessionStorage.getItem("userId")
     var userName = sessionStorage.getItem("userName")
+    $("#name-display").html(userName)
 
     ////////////////////////////////////////////////////////////////////////////////////////////////////////
     // Load Everything about the join specific debate page
@@ -37,6 +38,9 @@ $(document).ready(function () {
     }
 
     ////////////////////////////////////////////////////////////////////////////////////////////////////////
+    // Loading the continue page
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////
+
     var numberOfDebates = $("#numberOfDebates").data("numberofdebates")
 
     $(".continue-div").hide()
@@ -56,6 +60,19 @@ $(document).ready(function () {
 
     }
 
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////
+    // Load Everything about the continue specific debate page
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+    var continueDebateTopic = sessionStorage.getItem("continueDebateTopic")
+    var continueDebateMessageNum = sessionStorage.getItem("continueDebateMessageNum")
+
+    $("#continue-debate-topic").html(continueDebateTopic)
+
+    for (var j = 0; j < continueDebateMessageNum; j++) {
+        continueDebateMessageDiv = $("<div>").addClass("debate-message-box").text(sessionStorage.getItem("continueDebateMessage" + j))
+        $("#continue-message-display").append(continueDebateMessageDiv);
+    }
 
     ////////////////////////////////////////////////////////////////////////////////////////////////////////
     // Nav Bar on-click events
@@ -279,7 +296,7 @@ $(document).ready(function () {
 
         event.preventDefault();
 
-        console.log("you clicked join!")
+        console.log("you clicked explore!")
         var debateId = $(this).data("debateid");
         console.log("debate ID: ", debateId);
         console.log("your user ID: ", userId);
@@ -355,5 +372,89 @@ $(document).ready(function () {
             }, 100);
 
     })
+
+    // Handling Continue Debate Button
+    $(document).on("click", ".continue-button", function (event) {
+
+        event.preventDefault();
+
+        console.log("you clicked continue!")
+        var debateId = $(this).data("debateid");
+        console.log("debate ID: ", debateId);
+        console.log("your user ID: ", userId);
+
+        sessionStorage.setItem("continueDebateId", debateId)
+
+        $.get("api/debates/" + debateId)
+            .then(function (result) {
+                console.log(result);
+                sessionStorage.setItem("continueDebateTopic", result.topic)
+            }).catch(function (error) {
+                console.log("There was an error:")
+                console.log(error)
+            })
+
+        $.get("api/messages/" + debateId)
+            .then(function (result) {
+                console.log(result);
+                sessionStorage.setItem("continueDebateMessageNum", result.length)
+                for (var i = 0; i < result.length; i++) {
+                    sessionStorage.setItem("continueDebateMessage" + i, result[i].content)
+                }
+            }).catch(function (error) {
+                console.log("There was an error:")
+                console.log(error)
+            })
+
+        location.href = '/continuespecificdebate'
+
+    })
+
+
+    // Handling Continue Debate Posting Message Button
+    $(document).on("click", "#continue-post-button", function (event) {
+
+        event.preventDefault();
+        console.log("you clicked post");
+        var content = $("#continue-message-input").val().trim();
+        var userId = sessionStorage.getItem("userId");
+        var debateId = sessionStorage.getItem("continueDebateId")
+        var userName = sessionStorage.getItem("userName")
+
+        var newMessage = {
+            userId: userId,
+            debateId: debateId,
+            content: userName + ": " + content
+        }
+
+        $("#continue-message-input").val("");
+
+        $.post("api/messages", newMessage)
+            .then(function (result) {
+                console.log("Message Added!");
+                console.log(result);
+            }).catch(function (error) {
+                console.log("There was an error:")
+                console.log(error)
+            })
+
+        setTimeout(() => {
+            $.get("api/messages/" + debateId)
+                .then(function (result) {
+                    console.log(result);
+                    sessionStorage.setItem("continueDebateMessageNum", result.length)
+                    for (var i = 0; i < result.length; i++) {
+                        sessionStorage.setItem("continueDebateMessage" + i, result[i].content)
+                    }
+                }).catch(function (error) {
+                    console.log("There was an error:")
+                    console.log(error)
+                })
+
+            location.href = "/continuespecificdebate"
+        }, 100);
+
+    })
+
 
 });

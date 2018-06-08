@@ -87,7 +87,7 @@ module.exports = function(app){
     });
 
     // continue specific debate page
-    app.get("/explorespecificdebate", function (request, response) {
+    app.get("/continuespecificdebate", function (request, response) {
         response.render("continuespecificdebates")
     });
     
