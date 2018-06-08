@@ -57,16 +57,6 @@
     margin-bottom: 10px;
 }
 
-@media (max-width: 768px) {
-
-    .display-4 {
-    font-size: 2.9rem;
-    font-weight: 300;
-    line-height: 1.2;
-    }
-
-}
-
 body{
     background-image: url("./../images/city1.jpg");
     background-size: 1500px;
@@ -77,15 +67,46 @@ body{
 }
 
 .card-body{
-    background-color:black;
-    color:whitesmoke;
+    background-color:black !important;
+    color:whitesmoke !important;
 }
 
 .navbar{
-    background-color: black;
-    color:whitesmoke;
+    color:whitesmoke !important;
 }
 
 .navbar-default {
-    background-color: rgb(2, 2, 2);
-    border-color: #E7E7E7;
+    background-color: rgb(2, 2, 2) !important;
+    border-color: #E7E7E7 !important;
+}
+
+@media (max-width: 768px) {
+
+    .display-4 {
+    font-size: 2.9rem;
+    font-weight: 300;
+    line-height: 1.2;
+    }
+
+    .btn-responsive {
+    padding:2px 4px;
+    font-size:80%;
+    line-height: 1;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    }
+
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+  .btn-responsive {
+    padding:4px 9px;
+    font-size:90%;
+    line-height: 1.2;
+    width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+}
