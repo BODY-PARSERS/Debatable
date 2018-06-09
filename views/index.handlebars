@@ -1,47 +1,59 @@
 
-<div class="landing-page page-view">
+<div class="landing-page page-view row justify-content-around">
     
     {{!-- header --}}
-    <div class="jumbotron" style="width: 30rem; background-color:black; color:whitesmoke; opacity:0.75; border-style:ridge; border-width:3px;">
-        <h1 class="display-4 rock-salt">Debatable</h1>
-        <hr class="my-4">
-        <p class="lead poppins">The ultimate app to share perspectives!</p>
-        <a class="btn btn-primary btn-lg poppins explore-debate-button" href="/explore" role="button">Explore</a>
+    <div class="jumbotron col-md-5 jumbotron-style">
+        <h1 class="display-4 rock-salt header-size">Debatable</h1>
+        <hr class="my-4" style="border-color:whitesmoke">
+        <p class="lead poppins">The ultimate app to learn more about the world and share perspectives!</p>
+        <a class="btn btn-info btn-lg poppins explore-debate-button" href="/explore" role="button">Explore</a>
+    </div>
+
+    {{!-- Carousel --}}
+    <div id="carouselExampleIndicators" class="carousel slide jumbotron col-md-6 jumbotron-style poppins" data-ride="carousel">
+        <ol class="carousel-indicators">
+            <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+            <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+            <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+        </ol>
+        <div class="carousel-inner">
+            {{!-- carousel items --}}
+            <div class="carousel-item active">
+                <img class="d-block w-100 slides" src="https://phscutlass.com/wp-content/uploads/2018/01/IMG_0232-e1517232358417-900x860.png"
+                    alt="First slide">
+                <div class="carousel-caption d-none d-md-block" style="color: rgb(0,0,0,1)">
+                    <h4>Gun Control</h4>
+                    <h5>How do we define freedom of choice?<h5>
+                </div>
+            </div>
+
+            <div class="carousel-item">
+                <img class="d-block w-100 slides" src="https://www.washingtonpost.com/resizer/ZQn8WkBY90u6Vx6mjPitut3kISc=/480x0/arc-anglerfish-washpost-prod-washpost.s3.amazonaws.com/public/LNNMFDCMVY6U5CIHMJAD4FHTCQ.jpg"
+                    alt="First slide">
+                <div class="carousel-caption d-none d-md-block" style="color: rgb(0,0,0,1)">
+                    <h4>Never Again?</h4>
+                    <h5>?<h5>
+                </div>
+            </div>
+
+            <div class="carousel-item">
+                <img class="d-block w-100 slides" src="https://d2v9y0dukr6mq2.cloudfront.net/video/thumbnail/qEue9C6/think-word-letters-rising-consider-decide-3-d-animation_hxu9slpgl_thumbnail-full10.png"
+                    alt="First slide">
+                <div class="carousel-caption d-none d-md-block" style="color: rgb(0,0,0,1)">
+                    <h4>What do you want to know more about?</h4>
+                    <h5>Start your own debate now!<h5>
+                </div>
+            </div>
+            {{!-- above are carousel items --}}
+        </div>
+        <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span>
+        </a>
+        <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="sr-only">Next</span>
+        </a>
     </div>
     
-    {{!-- three sample debates --}}
-    <div class="card-deck poppins">
-        <div class="card card-background-color">
-            <img class="card-img-top" src="https://news.utexas.edu/sites/default/files/styles/news_article_main_image/public/photos/gun_control_830.jpg?itok=jvCefLBq"
-                alt="Card image cap">
-            <div class="card-body">
-                <h5 class="card-title">Gun Control</h5>
-                <p class="card-text">Should concealed carry be permitted?</p>
-                <p class="card-text">
-                    <small class="text-muted"></small>
-                </p>
-            </div>
-        </div>
-        <div class="card card-background-color">
-            <img class="card-img-top" src="https://pbs.twimg.com/media/CTfqqSiWsAAIQm7.jpg" alt="Card image cap">
-            <div class="card-body">
-                <h5 class="card-title">Abortion</h5>
-                <p class="card-text">Should abortion be a legal practice?</p>
-                <p class="card-text">
-                    <small class="text-muted"></small>
-                </p>
-            </div>
-        </div>
-        <div class="card card-background-color">
-            <img class="card-img-top" src="https://www.intelligencesquaredus.org/sites/default/files/debates/103-death-penalty-debate.jpg"
-                alt="Card image cap">
-            <div class="card-body">
-                <h5 class="card-title">Death Penalty</h5>
-                <p class="card-text">Should the death penalty be permitted?</p>
-                <p class="card-text">
-                    <small class="text-muted"></small>
-                </p>
-            </div>
-        </div>
-    </div>
 </div>
