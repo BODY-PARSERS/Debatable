@@ -5,10 +5,10 @@
         <div class="d-flex flex-wrap justify-content-start">
             {{#each debates}}
             <div class="card col-md-4 card-background-color {{../className}}-div" id="{{../className}}{{id}}-div">
-                <h5 class="card-header rock-salt">{{topic}}</h5>
+                <h4 class="card-header poppins" style="color:darkgoldenrod;">{{topic}}</h4>
                 <div class="card-body poppins">
                     <p class="card-text">Share your own perspectives with others.</p>
-                    <button class="btn btn-primary btn-lg btn-responsive {{../className}}-button" id="{{../className}}{{id}}" data-debateid={{id}} data-usersid={{debateusersId}}>
+                    <button class="btn btn-info btn-lg btn-responsive {{../className}}-button" id="{{../className}}{{id}}" data-debateid={{id}} data-usersid={{debateusersId}}>
                         {{../pageName}} Debate
                     </button>
                 </div>

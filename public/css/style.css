@@ -1,14 +1,23 @@
+
 .rock-salt{
     font-family: 'Rock Salt', cursive;
     font-style: oblique;
 }
 
 .poppins{
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Poppins', sans-serif !important;
 }
 
 .navbar{
-    background: #e9ecef !important;
+    background:black !important; 
+    opacity: 0.75;
+    border-radius:15px;
+    z-index: 1;
+    border:ridge 1px; 
+}
+
+.navtext{
+    color:white !important;
 }
 
 .card-background-color{
@@ -58,8 +67,8 @@
 }
 
 body{
-    background-image: url("./../images/city1.jpg");
-    background-size: 1500px;
+    background-image: url("./../images/forest.jpg");
+    background-size: 2000px;
 }
 
 .card{
@@ -80,6 +89,16 @@ body{
     border-color: #E7E7E7 !important;
 }
 
+div.carousel-inner {
+    margin:0;
+    padding:0;
+}
+
+div.carousel-item{
+    margin:0;
+    padding:0;
+}
+
 @media (max-width: 768px) {
 
     .display-4 {
@@ -97,6 +116,25 @@ body{
     white-space: nowrap;
     }
 
+    .header-size{
+      font-size:200%;
+    }
+
+    .footer-text-size {
+      font-size:100%;
+    }
+
+    footer {
+    background-color: black;
+    padding: 30px !important;
+    color:whitesmoke; 
+    opacity: 0.75;
+    border:ridge 1px; 
+    border-radius: 25px;
+    height: 350px !important;
+    width: 100%;
+    }
+
 }
 
 @media (min-width: 769px) and (max-width: 1024px) {
@@ -109,4 +147,81 @@ body{
     text-overflow: ellipsis;
     white-space: nowrap;
   }
+
+  .header-size{
+      font-size:220%;
+  }
+
+  .footer-text-size {
+      font-size:150%;
+  }
+
 }
+
+.jumbotron-style{
+   background-color:dimgray; 
+   color:whitesmoke; 
+   opacity:0.75; 
+   border:ridge 1px; 
+   border-radius: 25px;
+}
+
+img.slides{
+    height:280px;
+    border:0.5px;
+    border-radius:25px;
+}
+
+/* footer */
+footer {
+    background-color: black;
+    padding: 30px !important;
+    color:whitesmoke; 
+    opacity: 0.75;
+    border:ridge 1px; 
+    border-radius: 25px;
+    height: 212px;
+    width: 100%;
+}
+
+.site{
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+}
+
+.site-content {
+  flex: 1;
+}
+
+.user-greeting-animation {
+    color:#17a2b8;
+    animation-name: user-greeting-animation;
+    animation-duration: 5s;
+    animation-iteration-count: infinite;
+}
+
+@keyframes user-greeting-animation {
+    0%  {color: yellow;}
+    25%  {color:#17a2b8}
+    50% {color: green;}
+    75% {color: white;}
+}
+
+.teamname-animation {
+    color:red;
+    animation-name: teamname-animation;
+    animation-duration: 4s;
+    animation-iteration-count: infinite;
+}
+
+@keyframes teamname-animation {
+    0%  {color: red;}
+    25%  {color: yellow}
+    50% {color: green;}
+    75% {color: blue;}
+}
+
+/* .landing-page{
+    margin-top:100px;
+} */
