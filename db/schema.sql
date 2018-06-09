@@ -1,4 +1,4 @@
-DROP DATABASE IF EXISTS debatable_db;
+/* DROP DATABASE IF EXISTS debatable_db;
 CREATE DATABASE debatable_db;
 
 USE debatable_db;
@@ -32,4 +32,4 @@ CREATE TABLE debates
     user1_votes INT NOT NULL,
     user2_votes INT NOT NULL,
     PRIMARY KEY (id)
-);
+); */
