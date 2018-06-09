@@ -207,3 +207,17 @@ footer {
     50% {color: green;}
     75% {color: white;}
 }
+
+.teamname-animation {
+    color:red;
+    animation-name: teamname-animation;
+    animation-duration: 4s;
+    animation-iteration-count: infinite;
+}
+
+@keyframes teamname-animation {
+    0%  {color: red;}
+    25%  {color: yellow}
+    50% {color: green;}
+    75% {color: blue;}
+}
