@@ -125,6 +125,7 @@ div.carousel-item{
     }
 
     footer {
+    margin-top:10px;
     background-color: black;
     padding: 30px !important;
     color:whitesmoke; 
@@ -174,6 +175,7 @@ img.slides{
 
 /* footer */
 footer {
+    margin-top:10px;
     background-color: black;
     padding: 30px !important;
     color:whitesmoke; 
