@@ -2,17 +2,17 @@ module.exports = function (sequelize, DataTypes) {
 
     var Debate = sequelize.define("Debate", {
         topic: {
-            type: DataTypes.STRING,
+            type: DataTypes.TEXT,
             allowNull: false,
             validate: {
-                len: [1, 100]
+                len: [1, 200]
             }
         },
         description: {
-            type: DataTypes.STRING,
+            type: DataTypes.TEXT,
             allowNull: false,
             validate: {
-                len: [1, 245]
+                len: [1, 2000]
             }
         },
         user1_votes: {

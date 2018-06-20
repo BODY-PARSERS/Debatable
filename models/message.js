@@ -3,10 +3,10 @@ module.exports = function (sequelize, DataTypes) {
 
     var Message = sequelize.define("Message", {
         content: {
-            type: DataTypes.STRING,
+            type: DataTypes.TEXT,
             allowNull: false,
             validate: {
-                len: [1,245]
+                len: [1,2000]
             }
         },
     });
